@@ -43,3 +43,27 @@ for ((i = 0; i < $usersLen; i++)) do
         fi
     fi
 done
+clear
+
+echo Enter new users required by CyberPatriot, separated by a space
+read -a nusers
+
+nusersLen=${#nusers[@]}
+
+for((i = 0; i < $nusersLen; i++)) do
+    clear
+    echo ${nusers[$i]}
+    echo Password:
+    read npw
+    echo -e "$npw\n$npw" | adduser ${nusers[$i]}
+    clear
+    echo Is ${nusers[$i]} admin or user?
+    read nadm
+    if [[ $nadm == admin ]]; then
+        adduser ${nusers[$i]} adm
+        echo ${nusers[$i]} is now an admin
+    elif [[ $nadm == user ]]; then
+        deluser ${nusers[$i]} adm
+        echo ${nusers[i]} is now a user
+    fi
+done
