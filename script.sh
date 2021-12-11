@@ -1,14 +1,5 @@
 #!/bin/bash
 
-sudo su
-read password
-
-if [$EUID -ne 0]
-then
-    echo Script not run as root
-    exit
-fi
-
 mkdir -p ~/Desktop/backup
 chmod 777 ~/Desktop/backup
 echo Backup Folder Successful
@@ -20,29 +11,29 @@ echo Backup /etc/group & /etc/passwd Successful
 echo Enter all users required by CyberPatriot, separated by a space
 read -a users
 
-usersLen = ${#users[@]}
+usersLen=${#users[@]}
 
 for ((i = 0; i < $usersLen; i++)) do
     clear
     echo ${users[$i]}
     echo Delete ${users[$i]}? yes or no
     read del
-    if [[ $del == yes ]] then
+    if [[ $del == yes ]]; then
         deluser ${users[$i]}
         echo ${#users[@]} deleted
     else
         echo Is ${#users[@]} admin or user?
         read adm
-        if [[ $adm == admin ]] then
+        if [[ $adm == admin ]]; then
             adduser ${#users[@]} adm
             echo ${#users[@]} is now an admin
-        elif [[ $adm == user ]] then
+        elif [[ $adm == user ]]; then
             deluser ${#users[@]} adm
             echo ${#users[@]} is now a user
         fi
-        echo Set password for user? yes or no
+        echo Set user password? yes or no
         read ynpswd
-        if [[ $ynpswd == yes ]] then
+        if [[ $ynpswd == yes ]]; then
             echo Password:
             read pw
             $pw | passwd ${#users[@]}
