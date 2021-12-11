@@ -20,26 +20,26 @@ for ((i = 0; i < $usersLen; i++)) do
     read del
     if [[ $del == yes ]]; then
         deluser ${users[$i]}
-        echo ${#users[@]} deleted
+        echo ${users[$i]} deleted
     else
-        echo Is ${#users[@]} admin or user?
+        echo Is ${users[$i]} admin or user?
         read adm
         if [[ $adm == admin ]]; then
-            adduser ${#users[@]} adm
-            echo ${#users[@]} is now an admin
+            adduser ${users[$i]} adm
+            echo ${users[$i]} is now an admin
         elif [[ $adm == user ]]; then
-            deluser ${#users[@]} adm
-            echo ${#users[@]} is now a user
+            deluser ${users[$i]} adm
+            echo ${users[$i]} is now a user
         fi
         echo Set user password? yes or no
         read ynpswd
         if [[ $ynpswd == yes ]]; then
             echo Password:
             read pw
-            $pw | passwd ${#users[@]}
-            echo ${#users[@]} password changed to $pw
+            $pw | passwd ${users[$i]}
+            echo ${users[$i]} password changed to $pw
         else
-            echo ${#users[@]} password unchanged
+            echo ${users[$i]} password unchanged
         fi
     fi
 done
