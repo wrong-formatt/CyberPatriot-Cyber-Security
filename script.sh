@@ -6,7 +6,7 @@ echo Backup Folder Successful
 
 cp /etc/group ~/Desktop/backup
 cp /etc/passwd ~/Desktop/backup
-echo Backup /etc/group & /etc/passwd Successful
+echo Backup /etc/group and /etc/passwd successful
 
 echo Enter all users required by CyberPatriot, separated by a space
 read -a users
@@ -36,7 +36,7 @@ for ((i = 0; i < $usersLen; i++)) do
         if [[ $ynpswd == yes ]]; then
             echo Password:
             read pw
-            $pw | passwd ${users[$i]}
+            echo -e "$pw\n$pw" | passwd ${users[$i]}
             echo ${users[$i]} password changed to $pw
         else
             echo ${users[$i]} password unchanged
