@@ -84,9 +84,9 @@ if [[ $answer == no ]]; then
     find /home -name *.jpg | xargs rm
     find /home -name *.png | xargs rm
     find /home -name *.mp4 | xargs rm
-	find /home -name *.mp3 | xargs rm
-	find /home -name *.wav | xargs rm
-	find /home -name *.aiff | xargs rm
+    find /home -name *.mp3 | xargs rm
+    find /home -name *.wav | xargs rm
+    find /home -name *.aiff | xargs rm
     find /home -name *.gif | xargs rm
     find /home -name *.tiff | xargs rm
     find /home -name *.jpeg | xargs rm
