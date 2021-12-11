@@ -105,13 +105,13 @@ dpkg --get-selections | grep "brute force" | cut -f1 | xargs apt-get autoremove 
 dpkg --get-selections | grep "hack" | cut -f1 | xargs apt-get autoremove --purge -y
 dpkg --get-selections | grep "game" | cut -f1 | xargs apt-get autoremove --purge -y
 dpkg --get-selections | grep "backdoor" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "john" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "netcat" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "hydra" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "telnet" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "ophcrack" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "kismet" | cut -f1 | xargs apt-get autoremove --purge -y
-dpkg --get-selections | grep "medusa" | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep john | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep netcat | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep hydra | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep telnet | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep ophcrack | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep kismet | cut -f1 | xargs apt-get autoremove --purge -y
+dpkg --get-selections | grep medusa | cut -f1 | xargs apt-get autoremove --purge -y
 echo All hacking tools and dangerous software have been cleaned
 clear
 
